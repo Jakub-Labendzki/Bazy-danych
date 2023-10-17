@@ -1,22 +1,22 @@
 Option Compare Database
 
-Private Sub Polecenie0_Click()
- Dim bd As DAO.Database
- Dim rs As DAO.Recordset
- Dim odp As Integer
- 
- Set bd = CurrentDb
- Set rs = bd.OpenRecordset("Klienci")
- 
- rs.MoveFirst
- 
- Do While Not rs.EOF
-   odp = MsgBox("Nazwisko klienta : " & rs.Fields("NazwiskoKlienta") & vbCrLf, vbOKCancel, "Szulta moduł VBA")
-   If odp = vbCancel Then
-     Exit Sub
-   End If
-   rs.MoveNext
-   
- Loop
- 
+Private Sub Polecenie1_Click()
+    Dim bd As DAO.Database
+    Dim rs As DAO.Recordset
+    Dim odp As Integer
+    
+    Set bd = CurrentDb
+    Set rs = bd.OpenRecordset("Klienci")
+    
+    rs.MoveFirst
+    
+    Do While Not rs.EOF
+    
+        odp = MsgBox("Nazwisko Klienta : " & rs.Fields("NazwiskoKlienta") & vbCrLf, vbOKCancel, "Nigger")
+        If odp = vbCancel Then
+            Exit Sub
+        End If
+        rs.MoveNext
+        
+    Loop
 End Sub
