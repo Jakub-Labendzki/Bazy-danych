@@ -1,22 +1,61 @@
 Option Compare Database
 
-Private Sub Polecenie1_Click()
-    Dim bd As DAO.Database
-    Dim rs As DAO.Recordset
-    Dim odp As Integer
-    
-    Set bd = CurrentDb
-    Set rs = bd.OpenRecordset("Klienci")
-    
-    rs.MoveFirst
-    
+Private Sub moja_Procedura()
+    Dim odp As Integer 'zmienna odpowiedź
+    Dim db As DAO.Database 'baza danych
+    Dim rs As DAO.Recordset  'recordset zbiór wierszy w tabeli
+        Set db = CurrentDb 'bierząca baza danych
+        Set rs = db.OpenRecordset("Klienci") 'otworzenie tabeli w Recordset
+        rs.MoveFirst 'ustaw sie na poczatek
+        
     Do While Not rs.EOF
-    
-        odp = MsgBox("Nazwisko Klienta : " & rs.Fields("NazwiskoKlienta") & vbCrLf, vbOKCancel, "Nigger")
+        odp = MsgBox("Nazwisko klienta : " & rs.Fields("Nazwiskoklienta") & vbCrLf & _
+            "Imię klinta : " & rs.Fields("Imieklienta"), vbOKCancel, "Szulta robi loda")
         If odp = vbCancel Then
             Exit Sub
         End If
-        rs.MoveNext
-        
+       rs.MoveNext
+    
     Loop
+    
+End Sub
+
+Private Sub Form_Current()
+
+End Sub
+
+Private Sub Polecenie0_Click()
+   Call moja_Procedura
+End Sub
+
+
+
+
+-------------------------------------------------------------
+Option Compare Database
+Option Explicit
+
+
+Private Sub moja_Procedura()
+    Dim odp As Integer 'zmienna odpowiedź
+    Dim db As DAO.Database 'baza danych
+    Dim rst As DAO.Recordset  'recordset zbiór wierszy w tabeli
+        Set db = CurrentDb 'bierząca baza danych
+        Set rst = db.OpenRecordset("Klienci") 'otworzenie tabeli w Recordset
+        rst.MoveFirst 'ustaw sie na poczatek
+        
+    Do While Not rst.EOF
+        odp = MagBox("Nazwisko klienta : " & rst.Fields("NazwiskoKlienta") & vbCrLf & _
+            "Imię klinta : " & rst.Fields("ImieKlienta"), vbOKCancel, "Szulta robi loda")
+        If odp = vbCancel Then
+            Exit Sub
+        End If
+       rst.MoveNext
+    
+    Loop
+    
+End Sub
+
+Private Sub Polecenie0_Click()
+    Call moja_Procedura
 End Sub
