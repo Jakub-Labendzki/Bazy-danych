@@ -30,8 +30,9 @@ End Sub
 
 
 
+====
 
--------------------------------------------------------------
+
 Option Compare Database
 Option Explicit
 
@@ -59,3 +60,8 @@ End Sub
 Private Sub Polecenie0_Click()
     Call moja_Procedura
 End Sub
+
+
+
+
+------------------------------------------------------------------------------
